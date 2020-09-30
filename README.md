@@ -1,3 +1,4 @@
+![](https://img.shields.io/github/commit-activity/w/Ray725/COMS4995?style=plastic)
 # COMS4995
 
 ## Initial project proposal
