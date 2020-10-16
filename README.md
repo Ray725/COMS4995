@@ -1,4 +1,5 @@
 ![](https://img.shields.io/github/commit-activity/w/Ray725/COMS4995?style=plastic)
+[![Build Status](https://travis-ci.org/Ray725/consigliere.svg?branch=master)](https://travis-ci.org/Ray725/consigliere)
 # COMS4995
 
 # Project Proposal
