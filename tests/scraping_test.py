@@ -3,11 +3,11 @@ from scraping.website_scraper import WebsiteScraper
 
 class TestScraping:
     def test_website_scraper_url_default(self):
-        ws = WebsiteScraper()
-        assert ws.get_request_json() is None
+        ws = WebsiteScraper(None)
+        assert ws.get_request_raw_text(None) is None
 
     def test_website_scraper_set_url(self):
-        ws = WebsiteScraper()
+        ws = WebsiteScraper(None)
         ws.set_url('test_url')
         assert ws.url == 'test_url'
 
