@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from scraping.website_scraper import WebsiteScraper
 
 class ArtOfWar(WebsiteScraper):
+    '''A class intended to be used as an API for suntzusaid.com.
+    '''
     def __init__(self, url=None):
         if url is None:
             super().__init__('https://suntzusaid.com/')
@@ -37,6 +39,13 @@ class ArtOfWar(WebsiteScraper):
         return parsed_results
 
     def parse_book(self, book_route):
+        '''Takes in a route for a book route (e.g. book/6/33/) and
+        returns the text of the webpage.
+
+        Args:
+            book_route: string that denotes a book passage route
+
+        Returns:
+            Raw text, perhaps separated into a list?
         '''
-        '''
-        pass
+        return self.url + book_route

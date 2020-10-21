@@ -1,3 +1,6 @@
+'''Contains functions to help with formatting data.
+'''
+
 def format_message(data):
     '''Formats data as message for sending.
 
@@ -11,7 +14,7 @@ def format_message(data):
     if len(data) != 3:
         print('Error! Expected data format is ' + \
               '[author, source (link or book name), text]')
-        return
+        return None
 
     author = data[0]
     source = data[1]

@@ -8,3 +8,4 @@ install:
 script:
     - python -m coverage run -m pytest
     - python -m coverage report -m
+    - python -m pylint scraping/ formatting/
