@@ -1,8 +1,5 @@
 # Welcome to Consigliere's documentation!
 
-## This is our first header
+## What is Consigliere?
 
-- these
-- are
-- some
-- bullets
+An API to help query primarily ancient writers.
