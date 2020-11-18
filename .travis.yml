@@ -7,5 +7,5 @@ install:
     - pip install -r requirements.txt
 script:
     - python -m coverage run -m pytest
-    - python -m coverage report -m
+    - python -m coverage --source=. report -m
     - python -m pylint scraping/ formatting/
