@@ -2,7 +2,6 @@
 '''
 from bs4 import BeautifulSoup
 from scraping.website_scraper import WebsiteScraper
-import re
 
 class ProjectGutenberg(WebsiteScraper):
     '''Class meant to be used as an API for Project Gutenberg.
@@ -11,6 +10,8 @@ class ProjectGutenberg(WebsiteScraper):
         gurl = 'https://www.gutenberg.org/ebooks/search/?query='
         if url is None:
             super().__init__(gurl)
+        self.book = None
+        self.book_html = None
 
     def search_text(self, query_string):
         '''Assumes a book has already been searched for and set.
@@ -29,9 +30,9 @@ class ProjectGutenberg(WebsiteScraper):
         soup = BeautifulSoup(res, 'html.parser')
         paragraphs = soup.findAll('p')
         search_results = []
-        for p in paragraphs:
-            if query_string in p.text:
-                stripped = ' '.join(p.text.split())
+        for paragraph in paragraphs:
+            if query_string in paragraph.text:
+                stripped = ' '.join(paragraph.text.split())
                 search_results.append(stripped)
 
         return search_results
@@ -58,7 +59,7 @@ class ProjectGutenberg(WebsiteScraper):
 
         if len(book_results) == 0:
             return None
-    
+
         top_result = book_results[0]
         href = top_result.find('a')['href']
         self.book = 'https://www.gutenberg.org' + href
@@ -69,7 +70,7 @@ class ProjectGutenberg(WebsiteScraper):
 
         if len(rows) == 0:
             return None
-        
+
         self.book_html = rows[0]['about']
 
         return self.book_html
