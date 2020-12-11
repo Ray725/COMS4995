@@ -1,5 +1,6 @@
 from scraping.art_of_war import ArtOfWar
 from scraping.website_scraper import WebsiteScraper
+from scraping.project_gutenberg import ProjectGutenberg
 
 class TestScraping:
     def test_website_scraper_url_default(self):
@@ -15,3 +16,12 @@ class TestScraping:
         aow = ArtOfWar()
         aow.set_url('test_url')
         assert aow.url == 'test_url'
+
+    def test_pg_scraper_is_proper_subclass(self):
+        pg = ProjectGutenberg()
+        pg.set_url('test_url')
+        assert pg.url == 'test_url'
+
+    def test_pg_scraper_no_book_error_handling(self):
+        pg = ProjectGutenberg()
+        assert pg.search_text('query') == None

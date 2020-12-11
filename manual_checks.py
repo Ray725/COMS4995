@@ -1,5 +1,6 @@
 from scraping.art_of_war import ArtOfWar
 from scraping.project_gutenberg import ProjectGutenberg
+from formatting.format_helper import format_message
 
 '''
 aow = ArtOfWar()
@@ -8,9 +9,9 @@ print(res)
 '''
 
 pg = ProjectGutenberg()
-res = pg.search_book('the republic')
-print(res)
+book = pg.search_book('the republic')
 
 res = pg.search_text('trust')
-print(res)
-print(len(res))
+
+telegram_message = format_message('the republic', book, res)
+print(telegram_message)
